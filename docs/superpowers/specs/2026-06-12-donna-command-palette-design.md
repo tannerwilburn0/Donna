@@ -1,6 +1,6 @@
 # Donna — global command palette (⌘K) design
 
-2026-06-12. Status: implementing.
+2026-06-12. Status: shipped.
 
 ## Problem
 
@@ -85,4 +85,5 @@ empty group — a failed source disappears, never breaks the palette. All parsin
 - Vitest server: `+server.ts` with mocked `lqFetch` — happy path, partial source failure (group
   omitted, others intact), short query returns nav-only/empty groups.
 - Component: renders groups, keyboard selection moves, Enter calls `goto`, Esc closes.
-- Live e2e: deferred to a follow-up (palette is pure frontend over already-e2e'd endpoints).
+- Live e2e: `tests/command-palette.spec.ts` — self-cleaning (seeds a saved prompt via the BFF,
+  deletes in `finally`): shortcut open, nav resting state, entity hit, Escape, keyboard navigation.
